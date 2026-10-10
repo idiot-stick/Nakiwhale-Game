@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://e6rs63evnkbq"]
+
+[ext_resource type="Script" uid="uid://cd6pvaati22v8" path="res://Scripts/PlayerScripts/UI/PauseMenu.cs" id="1_8rf44"]
+[ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_rrvs5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrvs5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rf44"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2i2h"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oykix"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdnb7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="PauseMenu" type="Control" unique_id=534881796]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8rf44")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1360164400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer" unique_id=1829242831]
+layout_mode = 2
+color = Color(0, 0, 0, 0.34509805)
+
+[node name="Title" type="MarginContainer" parent="MarginContainer" unique_id=76782887]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 185
+
+[node name="Label" type="Label" parent="MarginContainer/Title" unique_id=596793771]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_rrvs5")
+theme_override_font_sizes/font_size = 53
+text = "This is a pause menu"
+
+[node name="Buttons" type="MarginContainer" parent="MarginContainer" unique_id=235355971]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Buttons" unique_id=1338049026]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Okay" type="Button" parent="MarginContainer/Buttons/VBoxContainer" unique_id=895016327]
+z_index = 5
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_rrvs5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rrvs5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rf44")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r2i2h")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_oykix")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kdnb7")
+text = "Okay"
+
+[node name="Options" type="Button" parent="MarginContainer/Buttons/VBoxContainer" unique_id=227922050]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rrvs5")
+text = "Options"
+
+[connection signal="pressed" from="MarginContainer/Buttons/VBoxContainer/Options" to="." method="_on_options_pressed"]

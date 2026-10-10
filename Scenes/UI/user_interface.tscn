@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://pdwncij2gbb5"]
+
+[ext_resource type="Script" uid="uid://bovmv3mihqdoc" path="res://Scripts/PlayerScripts/UI/UserInterface.cs" id="1_dubu0"]
+[ext_resource type="PackedScene" uid="uid://e6rs63evnkbq" path="res://Scenes/UI/pause_menu.tscn" id="2_ebjbk"]
+[ext_resource type="PackedScene" uid="uid://cm8gp51ia6thk" path="res://Scenes/UI/debug_stats.tscn" id="3_6q3el"]
+[ext_resource type="PackedScene" uid="uid://b227b6e8qoyv4" path="res://Scenes/UI/options_menu.tscn" id="4_6q3el"]
+
+[node name="UserInterface" type="Control" unique_id=823725355 node_paths=PackedStringArray("pause_menu", "debug_stats", "options_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dubu0")
+pause_menu = NodePath("PauseMenu")
+debug_stats = NodePath("DebugStats")
+options_menu = NodePath("OptionsMenu")
+
+[node name="PauseMenu" parent="." unique_id=534881796 instance=ExtResource("2_ebjbk")]
+visible = false
+layout_mode = 1
+
+[node name="DebugStats" parent="." unique_id=388848272 instance=ExtResource("3_6q3el")]
+layout_mode = 1
+
+[node name="OptionsMenu" parent="." unique_id=997769743 instance=ExtResource("4_6q3el")]
+visible = false
+layout_mode = 1

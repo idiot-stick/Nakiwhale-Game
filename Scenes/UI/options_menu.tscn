@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://b227b6e8qoyv4"]
+
+[ext_resource type="Script" uid="uid://ceqth48o5dtcg" path="res://Scripts/PlayerScripts/UI/OptionsMenu.cs" id="1_fn00r"]
+[ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_run4o"]
+
+[node name="OptionsMenu" type="Control" unique_id=997769743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fn00r")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1364309460]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer" unique_id=597615372]
+layout_mode = 2
+color = Color(0, 0, 0, 0.34509805)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1862108912]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LeftSide" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=2124908026]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftSide" unique_id=1902462286]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Back" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer" unique_id=1681179234]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_run4o")
+theme_override_font_sizes/font_size = 28
+text = "Back"
+
+[node name="Categories" type="ColorRect" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer" unique_id=1961946449]
+custom_minimum_size = Vector2(200, 800)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories" unique_id=2010069152]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer" unique_id=1596236381]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=778003437]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_run4o")
+theme_override_font_sizes/font_size = 24
+text = "Wawa"
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=14659079]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_run4o")
+theme_override_font_sizes/font_size = 24
+text = "Wawa2"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=1066412864]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_run4o")
+theme_override_font_sizes/font_size = 24
+text = "Wawa3"
+
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=2107130479]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_run4o")
+theme_override_font_sizes/font_size = 24
+text = "Wawa4"
+
+[node name="RightSide" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=999567559]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 75
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1934655998]
+custom_minimum_size = Vector2(1100, 855)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Back" to="." method="_on_back_pressed"]

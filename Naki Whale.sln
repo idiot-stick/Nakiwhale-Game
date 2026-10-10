@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naki Whale", "Naki Whale.csproj", "{EC24F98B-3839-4E5F-B586-E7658296C5CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC24F98B-3839-4E5F-B586-E7658296C5CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC24F98B-3839-4E5F-B586-E7658296C5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC24F98B-3839-4E5F-B586-E7658296C5CD}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{EC24F98B-3839-4E5F-B586-E7658296C5CD}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{EC24F98B-3839-4E5F-B586-E7658296C5CD}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{EC24F98B-3839-4E5F-B586-E7658296C5CD}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

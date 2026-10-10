@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cm8gp51ia6thk"]
+
+[ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_qi0s7"]
+
+[node name="DebugStats" type="Control" unique_id=388848272]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=720672510]
+layout_mode = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="Background" type="ColorRect" parent="MarginContainer" unique_id=448084557]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.45490196)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=387860098]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Text" type="HBoxContainer" parent="MarginContainer/MarginContainer" unique_id=2025925199]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="ValueType" type="VBoxContainer" parent="MarginContainer/MarginContainer/Text" unique_id=682174269]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/Text/ValueType" unique_id=1601833699]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qi0s7")
+theme_override_font_sizes/font_size = 16
+text = "Wawa:"
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/Text/ValueType" unique_id=1827241535]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qi0s7")
+theme_override_font_sizes/font_size = 16
+text = "Wawa2:"
+
+[node name="ValueAmount" type="VBoxContainer" parent="MarginContainer/MarginContainer/Text" unique_id=1026790969]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/Text/ValueAmount" unique_id=1924010253]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qi0s7")
+theme_override_font_sizes/font_size = 16
+text = "Value"
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/Text/ValueAmount" unique_id=425507419]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qi0s7")
+theme_override_font_sizes/font_size = 16
+text = "Value2"
