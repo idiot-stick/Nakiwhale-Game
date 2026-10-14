@@ -544,14 +544,14 @@ metadata/_edit_group_ = true
 
 [node name="Camera" type="Node3D" parent="." unique_id=1280408660]
 script = ExtResource("3_6t5aa")
+camera_x_position = 3.4699999999999998
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Camera" unique_id=1720402960]
-transform = Transform3D(0.96637607, -0.06394634, 0.24905454, 0, 0.96858317, 0.2486899, -0.25713283, -0.24032797, 0.9360156, 0, 0, 0)
-spring_length = 3.0
-
-[node name="Camera3D" type="Camera3D" parent="Camera/SpringArm3D" unique_id=479977220]
-transform = Transform3D(0.96637607, -0.01748897, -0.25653744, -0.06394634, 0.9499943, -0.30564982, 0.2490546, 0.31177732, 0.91693336, -0.10076319, -0.10562647, 2.2479975)
+[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=479977220]
+transform = Transform3D(1, -2.2637344e-08, -5.8199735e-08, 1.8626451e-08, 0.99768436, -0.068015225, 5.9604645e-08, 0.06801523, 0.9976843, 0.4692533, 0.45674628, 2.1554554)
 fov = 85.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera" unique_id=1465436644]
+target_position = Vector3(0.469, 0.457, 2.155)
 
 [node name="StateMachine" type="Node" parent="." unique_id=1449103644]
 script = ExtResource("4_fkybt")

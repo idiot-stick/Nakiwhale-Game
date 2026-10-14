@@ -12,13 +12,13 @@ public partial class Camera : Node3D
     [Export] public float interpolation_weight_zoom = 0.5f;
 
     private Vector3 camera_target_position = Vector3.Zero;
+    private Vector3 previous_camera_target_position = Vector3.Zero;
 
-    private Camera3D camera3D = null;
-    private SpringArm3D spring_arm = null;
-    private Node3D visuals = null;
-    
-    private float camera3D_previous_position_x = -0.1f;
-    private float camera3D_previous_position_y = -0.1f;
+    private Camera3D camera3D;
+    private RayCast3D raycast;
+    private Node3D visuals;
+
+    private Vector3 raycast_collision_point;
 
     public override void _Ready()
     {
@@ -27,16 +27,18 @@ public partial class Camera : Node3D
         PlayerVariables.Instance.camera_sensitivity_zoom = 0.5f;
         PlayerVariables.Instance.base_fov = 85;
 
-        camera3D = GetNode<Camera3D>("SpringArm3D/Camera3D");
-        spring_arm = GetNode<SpringArm3D>("SpringArm3D");
+        camera3D = GetNode<Camera3D>("Camera3D");
+        raycast = GetNode<RayCast3D>("RayCast3D");
         visuals = GetNode<Node3D>("../Visuals");
+
+        raycast_collision_point = camera3D.GlobalPosition;
+        camera_target_position = camera3D.Position;
+        previous_camera_target_position = camera_target_position;
 
         PlayerVariables.Instance.camera3D_position_x = camera3D.Position.X;
         PlayerVariables.Instance.camera3D_position_y = camera3D.Position.Y;
-        camera3D_previous_position_x = PlayerVariables.Instance.camera3D_position_x;
-        camera3D_previous_position_y = PlayerVariables.Instance.camera3D_position_y;
 
-        set_spring_arm();
+        //set_spring_arm();
 
         // Connecting signals
 
@@ -59,16 +61,26 @@ public partial class Camera : Node3D
     }
 
     public override void _Process(double delta)
-    {   
-        /***********************************************************************************************************
-        Put the clamping of the z value into a _Set() function so it doesn't clamp the value every single _Process()
+    {
+        camera3D.GlobalPosition = camera3D.GlobalPosition.Lerp(raycast_collision_point, 0.4f);
+    }
 
-        Maybe do something about the spring arm?
 
-        Also, check the PlayerVariables.Instance.camera3D_position_x against the camera3D_previous_position_x and if
-        the values don't match up, well, match em up, assign the camera3D position to them and call set_spring_arm()
-        ***********************************************************************************************************/
-        spring_arm.SpringLength = Mathf.Lerp(spring_arm.SpringLength, spring_arm.Position.DistanceTo(camera_target_position), interpolation_weight_zoom);
+    public override void _PhysicsProcess(double delta)
+    {
+        if (previous_camera_target_position != camera_target_position)
+        {
+            raycast.TargetPosition = camera_target_position;
+            previous_camera_target_position = camera_target_position;
+        }
+
+        if (raycast.IsColliding())
+        {
+            raycast_collision_point = raycast.GetCollisionPoint();
+        } else
+        {
+            raycast_collision_point = ToGlobal(camera_target_position);
+        }
     }
 
 
@@ -100,22 +112,6 @@ public partial class Camera : Node3D
             camera_target_position = new Vector3(camera_target_position.X, camera_target_position.Y, Mathf.Clamp(camera_target_position.Z, CameraZoomMinimum, CameraZoomMaximum));
         }
 
-        if (Input.IsActionJustPressed("flip_camera"))
-        { 
-            Tween tween = CreateTween().SetParallel(true);
-            tween.TweenProperty(spring_arm, "rotation", spring_arm.Rotation * new Vector3 (1, -1, 1), 0.1);
-            tween.TweenProperty(camera3D, "rotation", camera3D.Rotation * new Vector3 (1, -1, -1), 0.1);            
-        }
-    }
-
-    private void set_spring_arm()
-    {
-        camera_target_position = camera3D.Position;
-        spring_arm.SpringLength = spring_arm.Position.DistanceTo(camera_target_position);
-
-        Transform3D cameraGlobalTransform = camera3D.GlobalTransform;
-        spring_arm.Rotation = new Vector3 (-Mathf.Atan(camera3D.GlobalPosition.Y / camera3D.GlobalPosition.Z), Mathf.Atan(camera3D.GlobalPosition.X / camera3D.GlobalPosition.Z), 0);
-        camera3D.GlobalTransform = cameraGlobalTransform;
     }
 
     private void _on_change_fov(float amount, float time)

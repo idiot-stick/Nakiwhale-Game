@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cv6qrsyu85x60" path="res://Assets/Textures/Green/texture_02.png" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://6xaidtmqg7ce" path="res://Assets/Textures/Orange/texture_02.png" id="3_21xkr"]
 [ext_resource type="Texture2D" uid="uid://bmxe0ndd5egqg" path="res://Assets/Textures/Purple/texture_02.png" id="4_6bp64"]
+[ext_resource type="Texture2D" uid="uid://bfed6ncgd28yk" path="res://Assets/Textures/Dark/texture_03.png" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://pdwncij2gbb5" path="res://Scenes/UI/user_interface.tscn" id="6_21xkr"]
 
 [sub_resource type="Environment" id="Environment_6oxv2"]
@@ -47,6 +48,16 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_wpgd8"]
 size = Vector3(1000, 0.1, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynf5e"]
+albedo_texture = ExtResource("5_6bp64")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6oxv2"]
+size = Vector3(40, 10, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikl8t"]
+size = Vector3(40, 10, 0.2)
 
 [node name="Main" type="Node" unique_id=272859766]
 
@@ -108,6 +119,19 @@ metadata/_edit_group_ = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Ground" unique_id=8436419]
 material_override = SubResource("StandardMaterial3D_344ge")
 mesh = SubResource("BoxMesh_wpgd8")
+metadata/_edit_group_ = true
+
+[node name="WALL" type="StaticBody3D" parent="Map" unique_id=1519764390]
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, 19.359, 5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/WALL" unique_id=2086672216]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ynf5e")
+mesh = SubResource("BoxMesh_6oxv2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/WALL" unique_id=269750080]
+shape = SubResource("BoxShape3D_ikl8t")
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." unique_id=533158011 instance=ExtResource("1_jjgbg")]
