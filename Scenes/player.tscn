@@ -544,7 +544,7 @@ metadata/_edit_group_ = true
 
 [node name="Camera" type="Node3D" parent="." unique_id=1280408660]
 script = ExtResource("3_6t5aa")
-camera_x_position = 3.4699999999999998
+camera_target_position = Vector3(0.47, -0.43, 1.965)
 
 [node name="Camera3D" type="Camera3D" parent="Camera" unique_id=479977220]
 transform = Transform3D(1, -2.2637344e-08, -5.8199735e-08, 1.8626451e-08, 0.99768436, -0.068015225, 5.9604645e-08, 0.06801523, 0.9976843, 0.4692533, 0.45674628, 2.1554554)

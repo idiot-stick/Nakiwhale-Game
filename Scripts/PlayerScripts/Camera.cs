@@ -9,8 +9,6 @@ public partial class Camera : Node3D
     [Export] public float CameraZoomMaximum = 4;
     [Export] public float CameraZoomMinimum = 0.5f;
 
-    [Export] public float interpolation_weight_zoom = 0.5f;
-
     private Vector3 camera_target_position = Vector3.Zero;
     private Vector3 previous_camera_target_position = Vector3.Zero;
 
@@ -35,10 +33,9 @@ public partial class Camera : Node3D
         camera_target_position = camera3D.Position;
         previous_camera_target_position = camera_target_position;
 
-        PlayerVariables.Instance.camera3D_position_x = camera3D.Position.X;
-        PlayerVariables.Instance.camera3D_position_y = camera3D.Position.Y;
+        PlayerVariables.Instance.camera3D_position_x = camera_target_position.X;
+        PlayerVariables.Instance.camera3D_position_y = camera_target_position.Y;
 
-        //set_spring_arm();
 
         // Connecting signals
 
@@ -62,7 +59,12 @@ public partial class Camera : Node3D
 
     public override void _Process(double delta)
     {
-        camera3D.GlobalPosition = camera3D.GlobalPosition.Lerp(raycast_collision_point, 0.4f);
+        if (PlayerVariables.Instance.camera3D_position_x != camera_target_position.X || PlayerVariables.Instance.camera3D_position_y != camera_target_position.Y)
+        {
+            camera_target_position = new Vector3(PlayerVariables.Instance.camera3D_position_x, PlayerVariables.Instance.camera3D_position_y, camera_target_position.Z);
+        }
+
+        camera3D.GlobalPosition = camera3D.GlobalPosition.Lerp(raycast_collision_point, 0.2f);
     }
 
 
@@ -110,6 +112,11 @@ public partial class Camera : Node3D
         {
             camera_target_position -= new Vector3 (0, 0, PlayerVariables.Instance.camera_sensitivity_zoom);
             camera_target_position = new Vector3(camera_target_position.X, camera_target_position.Y, Mathf.Clamp(camera_target_position.Z, CameraZoomMinimum, CameraZoomMaximum));
+        }
+
+        if (Input.IsActionPressed("flip_camera"))
+        {
+            camera_target_position *= new Vector3(-1, 1, 1);
         }
 
     }
