@@ -117,6 +117,7 @@ public partial class Camera : Node3D
         if (Input.IsActionPressed("flip_camera"))
         {
             camera_target_position *= new Vector3(-1, 1, 1);
+            PlayerVariables.Instance.camera3D_position_x *= -1;
         }
 
     }

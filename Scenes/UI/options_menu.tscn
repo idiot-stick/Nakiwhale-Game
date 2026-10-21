@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ceqth48o5dtcg" path="res://Scripts/PlayerScripts/UI/OptionsMenu.cs" id="1_fn00r"]
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_run4o"]
+[ext_resource type="PackedScene" uid="uid://bqrhwma2v74cs" path="res://Scenes/UI/test_options_menu.tscn" id="3_caj0f"]
 
 [node name="OptionsMenu" type="Control" unique_id=997769743]
 layout_mode = 3
@@ -106,7 +107,18 @@ theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 75
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1934655998]
+[node name="TestOptionsMenu" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1934655998]
+custom_minimum_size = Vector2(1100, 855)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0)
+
+[node name="TestOptionsMenu" parent="MarginContainer/HBoxContainer/RightSide/TestOptionsMenu" unique_id=686205465 instance=ExtResource("3_caj0f")]
+layout_mode = 1
+
+[node name="Blank" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1355033793]
+visible = false
 custom_minimum_size = Vector2(1100, 855)
 layout_mode = 2
 size_flags_horizontal = 4
