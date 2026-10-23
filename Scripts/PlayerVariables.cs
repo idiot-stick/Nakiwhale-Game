@@ -12,6 +12,8 @@ public partial class PlayerVariables : Node
     public float camera3D_position_x;
     public float camera3D_position_y;
 
+    public NodePath previously_selected_menu;
+
     public override void _Ready()
     {
         Instance = this;

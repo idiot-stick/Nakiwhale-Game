@@ -13,17 +13,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dubu0")
-pause_menu = NodePath("PauseMenu")
+pause_menu = NodePath("PausedUI/PauseMenu")
 debug_stats = NodePath("DebugStats")
-options_menu = NodePath("OptionsMenu")
-
-[node name="PauseMenu" parent="." unique_id=534881796 instance=ExtResource("2_ebjbk")]
-visible = false
-layout_mode = 1
+options_menu = NodePath("PausedUI/OptionsMenu")
 
 [node name="DebugStats" parent="." unique_id=388848272 instance=ExtResource("3_6q3el")]
 layout_mode = 1
 
-[node name="OptionsMenu" parent="." unique_id=997769743 instance=ExtResource("4_6q3el")]
+[node name="PausedUI" type="Node" parent="." unique_id=1875944068]
+
+[node name="PauseMenu" parent="PausedUI" unique_id=534881796 instance=ExtResource("2_ebjbk")]
 visible = false
-layout_mode = 1
+
+[node name="OptionsMenu" parent="PausedUI" unique_id=997769743 instance=ExtResource("4_6q3el")]
+visible = false
