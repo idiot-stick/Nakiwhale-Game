@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oxv2"]
 bg_color = Color(0.66, 0.66, 0.66, 0.42745098)
 
-[node name="TestOptionsMenu" type="Control" unique_id=686205465 node_paths=PackedStringArray("camera_position_x_slider", "camera_position_x_reset_button", "camera_position_x_text", "camera_position_y_slider", "camera_position_y_reset_button", "camera_position_y_text")]
+[node name="TestOptionsMenu" type="Control" unique_id=686205465 node_paths=PackedStringArray("camera_position_x_slider", "camera_position_x_reset_button", "camera_position_x_text", "camera_position_y_slider", "camera_position_y_reset_button", "camera_position_y_text", "camera_sensitivity_horizontal_slider", "camera_sensitivity_horizontal_reset_button", "camera_sensitivity_horizontal_text", "camera_sensitivity_vertical_slider", "camera_sensitivity_vertical_reset_button", "camera_sensitivity_vertical_text", "camera_sensitivity_zoom_slider", "camera_sensitivity_zoom_reset_button", "camera_sensitivity_zoom_text", "fov_slider", "fov_reset_button", "fov_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,18 @@ camera_position_x_text = NodePath("MarginContainer/Background/MarginContainer/Se
 camera_position_y_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider")
 camera_position_y_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset")
 camera_position_y_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText")
+camera_sensitivity_horizontal_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider")
+camera_sensitivity_horizontal_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset")
+camera_sensitivity_horizontal_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText")
+camera_sensitivity_vertical_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider")
+camera_sensitivity_vertical_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset")
+camera_sensitivity_vertical_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText")
+camera_sensitivity_zoom_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider")
+camera_sensitivity_zoom_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset")
+camera_sensitivity_zoom_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText")
+fov_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider")
+fov_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVReset")
+fov_text = NodePath("MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVText")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=823801040]
 layout_mode = 1
@@ -45,9 +57,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 45
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_right = 45
 theme_override_constants/margin_bottom = 50
 
 [node name="Settings" type="VBoxContainer" parent="MarginContainer/Background/MarginContainer" unique_id=1934982633]
@@ -96,7 +108,7 @@ theme_override_constants/separation = 119
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_1p8n6")
-text = "0"
+text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1383615774]
 layout_mode = 2
@@ -111,7 +123,7 @@ max_value = 30.0
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1198666517]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1p8n6")
-text = "30"
+text = "30 "
 
 [node name="CameraPositionXText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer" unique_id=1582543686]
 layout_mode = 2
@@ -175,7 +187,7 @@ theme_override_constants/separation = 119
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_1p8n6")
-text = "0"
+text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1399445239]
 layout_mode = 2
@@ -190,7 +202,7 @@ max_value = 20.0
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=542283069]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1p8n6")
-text = "20"
+text = "20 "
 
 [node name="CameraPositionYText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer" unique_id=1470621868]
 layout_mode = 2
@@ -212,9 +224,342 @@ texture_hover = ExtResource("4_pddbs")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Divider" type="Control" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1937900740]
+layout_mode = 2
+
+[node name="CameraSensitivityHorizontal" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=306175024]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal" unique_id=1194578910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer" unique_id=1262834958]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 24
+text = "Camera sensitivity horizontal"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer" unique_id=437852171]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer" unique_id=1154699215]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer" unique_id=1042206671]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=969077055]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = " 0"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=69365543]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="CameraSensitivityHorizontalSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=2013458085]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=672719587]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = "100"
+
+[node name="CameraSensitivityHorizontalText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer" unique_id=1976892793]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
+alignment = 1
+
+[node name="CameraSensitivityHorizontalReset" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer" unique_id=108123959]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_pddbs")
+texture_hover = ExtResource("4_pddbs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CameraSensitivityVertical" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=920471355]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical" unique_id=188265641]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer" unique_id=856204419]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 24
+text = "Camera sensitivity vertical"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer" unique_id=1352794174]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer" unique_id=293148259]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer" unique_id=1169265208]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2063011651]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = " 0"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=236389709]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="CameraSensitivityVerticalSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=1500650278]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1208411956]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = "100"
+
+[node name="CameraSensitivityVerticalText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer" unique_id=58537628]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
+alignment = 1
+
+[node name="CameraSensitivityVerticalReset" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer" unique_id=404400941]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_pddbs")
+texture_hover = ExtResource("4_pddbs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CameraSensitivityZoom" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=958017019]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom" unique_id=1468415989]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer" unique_id=2088962427]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 24
+text = "Camera zoom sensitivity"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer" unique_id=2034998290]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer" unique_id=704662571]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer" unique_id=303263132]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=744094871]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = " 0"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2013536964]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="CameraSensitivityZoomSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=469839535]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=583131194]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = "100"
+
+[node name="CameraSensitivityZoomText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer" unique_id=694698228]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
+alignment = 1
+
+[node name="CameraSensitivityZoomReset" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer" unique_id=548412372]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_pddbs")
+texture_hover = ExtResource("4_pddbs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Divider2" type="Control" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1878584923]
+layout_mode = 2
+
+[node name="FOV" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=566695697]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV" unique_id=2030841858]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer" unique_id=1434978555]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 24
+text = "FOV"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer" unique_id=1649603202]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer" unique_id=1807349476]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer" unique_id=1457809450]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2116987935]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = "70"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1228910521]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="FOVSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=376398035]
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 70.0
+max_value = 90.0
+value = 70.0
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=693005139]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1p8n6")
+text = "90 "
+
+[node name="FOVText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer" unique_id=1950101687]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
+alignment = 1
+
+[node name="FOVReset" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer" unique_id=1115512100]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_pddbs")
+texture_hover = ExtResource("4_pddbs")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionXSlider" to="." method="_on_camera_position_x_slider_value_changed"]
 [connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/CameraPositionXText" to="." method="_on_camera_position_x_text_submitted"]
 [connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/CameraPositionXReset" to="." method="_on_camera_position_x_reset_pressed"]
 [connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider" to="." method="_on_camera_position_y_slider_value_changed"]
 [connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText" to="." method="_on_camera_position_y_text_submitted"]
 [connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset" to="." method="_on_camera_position_y_reset_pressed"]
+[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider" to="." method="_on_camera_sensitivity_horizontal_slider_value_changed"]
+[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText" to="." method="_on_camera_sensitivity_horizontal_text_submitted"]
+[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset" to="." method="_on_camera_sensitivity_horizontal_reset_pressed"]
+[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider" to="." method="_on_camera_sensitivity_vertical_slider_value_changed"]
+[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText" to="." method="_on_camera_sensitivity_vertical_text_submitted"]
+[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset" to="." method="_on_camera_sensitivity_vertical_reset_pressed"]
+[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider" to="." method="_on_camera_sensitivity_zoom_slider_value_changed"]
+[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText" to="." method="_on_camera_sensitivity_zoom_text_submitted"]
+[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset" to="." method="_on_camera_sensitivity_zoom_reset_pressed"]
+[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVText" to="." method="_on_fov_text_submitted"]
+[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVReset" to="." method="_on_fov_reset_pressed"]

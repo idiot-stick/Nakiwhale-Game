@@ -20,10 +20,10 @@ public partial class Camera : Node3D
 
     public override void _Ready()
     {
-        PlayerVariables.Instance.camera_sensitivity_horizontal = 0.4f;
-        PlayerVariables.Instance.camera_sensitivity_vertical = 0.35f;
-        PlayerVariables.Instance.camera_sensitivity_zoom = 0.5f;
-        PlayerVariables.Instance.base_fov = 85;
+        PlayerVariables.Instance.camera3D_sensitivity_horizontal = 0.4f;
+        PlayerVariables.Instance.camera3D_sensitivity_vertical = 0.35f;
+        PlayerVariables.Instance.camera3D_sensitivity_zoom = 0.5f;
+        PlayerVariables.Instance.camera3D_fov = 85;
 
         camera3D = GetNode<Camera3D>("Camera3D");
         raycast = GetNode<RayCast3D>("RayCast3D");
@@ -92,25 +92,25 @@ public partial class Camera : Node3D
         if (@event is InputEventMouseMotion mouseEvent)
         {   
             // The player itself needs to be rotated so sending a signal to the player
-            EmitSignal(SignalName.camera_rotate, Mathf.DegToRad(-mouseEvent.Relative.X * PlayerVariables.Instance.camera_sensitivity_horizontal));
+            EmitSignal(SignalName.camera_rotate, Mathf.DegToRad(-mouseEvent.Relative.X * PlayerVariables.Instance.camera3D_sensitivity_horizontal));
 
-            visuals.RotateY(Mathf.DegToRad(mouseEvent.Relative.X * PlayerVariables.Instance.camera_sensitivity_horizontal)); // Offset visuals rotation from player's actual rotation
+            visuals.RotateY(Mathf.DegToRad(mouseEvent.Relative.X * PlayerVariables.Instance.camera3D_sensitivity_horizontal)); // Offset visuals rotation from player's actual rotation
 
             // X rotation
-            RotateX(Mathf.DegToRad(-mouseEvent.Relative.Y * PlayerVariables.Instance.camera_sensitivity_vertical));
+            RotateX(Mathf.DegToRad(-mouseEvent.Relative.Y * PlayerVariables.Instance.camera3D_sensitivity_vertical));
             RotationDegrees = new Vector3 (Mathf.Clamp(RotationDegrees.X, -90, 90),  RotationDegrees.Y, RotationDegrees.Z);
         }
 
 
         if (Input.IsActionPressed("camera_zoom_out"))
         {
-            camera_target_position += new Vector3 (0, 0, PlayerVariables.Instance.camera_sensitivity_zoom);
+            camera_target_position += new Vector3 (0, 0, PlayerVariables.Instance.camera3D_sensitivity_zoom);
             camera_target_position = new Vector3(camera_target_position.X, camera_target_position.Y, Mathf.Clamp(camera_target_position.Z, CameraZoomMinimum, CameraZoomMaximum));
         }
 
         if (Input.IsActionPressed("camera_zoom_in"))
         {
-            camera_target_position -= new Vector3 (0, 0, PlayerVariables.Instance.camera_sensitivity_zoom);
+            camera_target_position -= new Vector3 (0, 0, PlayerVariables.Instance.camera3D_sensitivity_zoom);
             camera_target_position = new Vector3(camera_target_position.X, camera_target_position.Y, Mathf.Clamp(camera_target_position.Z, CameraZoomMinimum, CameraZoomMaximum));
         }
 
@@ -125,6 +125,6 @@ public partial class Camera : Node3D
     private void _on_change_fov(float amount, float time)
     {
         Tween tween = CreateTween();
-        tween.TweenProperty(camera3D, "fov", PlayerVariables.Instance.base_fov + amount, time);
+        tween.TweenProperty(camera3D, "fov", PlayerVariables.Instance.camera3D_fov + amount, time);
     }
 }
