@@ -32,6 +32,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Naki Whale"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/options_field/plugin.cfg")
+
 [input]
 
 ui_left={

@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_1p8n6"]
 [ext_resource type="Script" uid="uid://bs78a8w0g1uc2" path="res://Scenes/UI/TestOptionsMenu.cs" id="1_5x6fi"]
+[ext_resource type="Script" uid="uid://bfeb4h7a3y5yk" path="res://Scripts/PlayerScripts/UI/SettingsFieldSlider.cs" id="2_gmut2"]
 [ext_resource type="Texture2D" uid="uid://5b5pxcf0h6pr" path="res://Assets/UI/redo_image.png" id="3_pddbs"]
 [ext_resource type="Texture2D" uid="uid://5yuph3525aby" path="res://Assets/UI/redo_hover_image.png" id="4_pddbs"]
 
@@ -66,11 +67,17 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="CameraPositionX" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=894890500]
+[node name="CameraPositionX" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=894890500 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("2_gmut2")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionXSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionXText")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionXReset")
+value_multiplier = 10.0
+value_name = "camera3D_position_x"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX" unique_id=1294129332]
 layout_mode = 1
@@ -145,11 +152,17 @@ texture_hover = ExtResource("4_pddbs")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="CameraPositionY" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1878101601]
+[node name="CameraPositionY" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1878101601 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("2_gmut2")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset")
+value_multiplier = 10.0
+value_name = "camera3D_position_y"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY" unique_id=579108306]
 layout_mode = 1
@@ -227,11 +240,17 @@ stretch_mode = 0
 [node name="Divider" type="Control" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1937900740]
 layout_mode = 2
 
-[node name="CameraSensitivityHorizontal" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=306175024]
+[node name="CameraSensitivityHorizontal" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=306175024 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("2_gmut2")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset")
+value_multiplier = 100.0
+value_name = "camera3D_sensitivity_horizontal"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal" unique_id=1194578910]
 layout_mode = 1
@@ -305,11 +324,17 @@ texture_hover = ExtResource("4_pddbs")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="CameraSensitivityVertical" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=920471355]
+[node name="CameraSensitivityVertical" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=920471355 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("2_gmut2")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset")
+value_multiplier = 100.0
+value_name = "camera3D_sensitivity_vertical"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical" unique_id=188265641]
 layout_mode = 1
@@ -383,11 +408,17 @@ texture_hover = ExtResource("4_pddbs")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="CameraSensitivityZoom" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=958017019]
+[node name="CameraSensitivityZoom" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=958017019 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("2_gmut2")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset")
+value_multiplier = 100.0
+value_name = "camera3D_sensitivity_zoom"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom" unique_id=1468415989]
 layout_mode = 1
@@ -464,11 +495,17 @@ stretch_mode = 0
 [node name="Divider2" type="Control" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1878584923]
 layout_mode = 2
 
-[node name="FOV" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=566695697]
+[node name="FOV" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=566695697 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("2_gmut2")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/FOVText")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/FOVReset")
+value_multiplier = 1.0
+value_name = "camera3D_fov"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV" unique_id=2030841858]
 layout_mode = 1
@@ -544,22 +581,3 @@ texture_normal = ExtResource("3_pddbs")
 texture_hover = ExtResource("4_pddbs")
 ignore_texture_size = true
 stretch_mode = 0
-
-[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionXSlider" to="." method="_on_camera_position_x_slider_value_changed"]
-[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/CameraPositionXText" to="." method="_on_camera_position_x_text_submitted"]
-[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/CameraPositionXReset" to="." method="_on_camera_position_x_reset_pressed"]
-[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider" to="." method="_on_camera_position_y_slider_value_changed"]
-[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText" to="." method="_on_camera_position_y_text_submitted"]
-[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset" to="." method="_on_camera_position_y_reset_pressed"]
-[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider" to="." method="_on_camera_sensitivity_horizontal_slider_value_changed"]
-[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText" to="." method="_on_camera_sensitivity_horizontal_text_submitted"]
-[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset" to="." method="_on_camera_sensitivity_horizontal_reset_pressed"]
-[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider" to="." method="_on_camera_sensitivity_vertical_slider_value_changed"]
-[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText" to="." method="_on_camera_sensitivity_vertical_text_submitted"]
-[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset" to="." method="_on_camera_sensitivity_vertical_reset_pressed"]
-[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider" to="." method="_on_camera_sensitivity_zoom_slider_value_changed"]
-[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText" to="." method="_on_camera_sensitivity_zoom_text_submitted"]
-[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset" to="." method="_on_camera_sensitivity_zoom_reset_pressed"]
-[connection signal="value_changed" from="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider" to="." method="_on_fov_slider_value_changed"]
-[connection signal="text_submitted" from="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVText" to="." method="_on_fov_text_submitted"]
-[connection signal="pressed" from="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVReset" to="." method="_on_fov_reset_pressed"]
