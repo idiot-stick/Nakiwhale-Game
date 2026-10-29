@@ -64,6 +64,11 @@ public partial class Camera : Node3D
             camera_target_position = new Vector3(PlayerVariables.Instance.camera3D_position_x, PlayerVariables.Instance.camera3D_position_y, camera_target_position.Z);
         }
 
+        if (camera3D.Fov != PlayerVariables.Instance.camera3D_fov)
+        {
+            camera3D.Fov = Mathf.Lerp(camera3D.Fov, PlayerVariables.Instance.camera3D_fov, 0.2f);
+        }
+
         camera3D.GlobalPosition = camera3D.GlobalPosition.Lerp(raycast_collision_point, 0.2f);
     }
 
@@ -104,13 +109,13 @@ public partial class Camera : Node3D
 
         if (Input.IsActionPressed("camera_zoom_out"))
         {
-            camera_target_position += new Vector3 (0, 0, PlayerVariables.Instance.camera3D_sensitivity_zoom);
+            camera_target_position += new Vector3(0, 0, PlayerVariables.Instance.camera3D_sensitivity_zoom);
             camera_target_position = new Vector3(camera_target_position.X, camera_target_position.Y, Mathf.Clamp(camera_target_position.Z, CameraZoomMinimum, CameraZoomMaximum));
         }
 
         if (Input.IsActionPressed("camera_zoom_in"))
         {
-            camera_target_position -= new Vector3 (0, 0, PlayerVariables.Instance.camera3D_sensitivity_zoom);
+            camera_target_position -= new Vector3(0, 0, PlayerVariables.Instance.camera3D_sensitivity_zoom);
             camera_target_position = new Vector3(camera_target_position.X, camera_target_position.Y, Mathf.Clamp(camera_target_position.Z, CameraZoomMinimum, CameraZoomMaximum));
         }
 

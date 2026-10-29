@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bqrhwma2v74cs"]
 
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_1p8n6"]
-[ext_resource type="Script" uid="uid://bs78a8w0g1uc2" path="res://Scenes/UI/TestOptionsMenu.cs" id="1_5x6fi"]
 [ext_resource type="Script" uid="uid://bfeb4h7a3y5yk" path="res://Scripts/PlayerScripts/UI/SettingsFieldSlider.cs" id="2_gmut2"]
 [ext_resource type="Texture2D" uid="uid://5b5pxcf0h6pr" path="res://Assets/UI/redo_image.png" id="3_pddbs"]
 [ext_resource type="Texture2D" uid="uid://5yuph3525aby" path="res://Assets/UI/redo_hover_image.png" id="4_pddbs"]
@@ -9,32 +8,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oxv2"]
 bg_color = Color(0.66, 0.66, 0.66, 0.42745098)
 
-[node name="TestOptionsMenu" type="Control" unique_id=686205465 node_paths=PackedStringArray("camera_position_x_slider", "camera_position_x_reset_button", "camera_position_x_text", "camera_position_y_slider", "camera_position_y_reset_button", "camera_position_y_text", "camera_sensitivity_horizontal_slider", "camera_sensitivity_horizontal_reset_button", "camera_sensitivity_horizontal_text", "camera_sensitivity_vertical_slider", "camera_sensitivity_vertical_reset_button", "camera_sensitivity_vertical_text", "camera_sensitivity_zoom_slider", "camera_sensitivity_zoom_reset_button", "camera_sensitivity_zoom_text", "fov_slider", "fov_reset_button", "fov_text")]
+[node name="TestOptionsMenu" type="Control" unique_id=686205465]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5x6fi")
-camera_position_x_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionXSlider")
-camera_position_x_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/CameraPositionXReset")
-camera_position_x_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/CameraPositionXText")
-camera_position_y_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider")
-camera_position_y_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset")
-camera_position_y_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText")
-camera_sensitivity_horizontal_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider")
-camera_sensitivity_horizontal_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset")
-camera_sensitivity_horizontal_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText")
-camera_sensitivity_vertical_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider")
-camera_sensitivity_vertical_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset")
-camera_sensitivity_vertical_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText")
-camera_sensitivity_zoom_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider")
-camera_sensitivity_zoom_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset")
-camera_sensitivity_zoom_text = NodePath("MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText")
-fov_slider = NodePath("MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider")
-fov_reset_button = NodePath("MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVReset")
-fov_text = NodePath("MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/FOVText")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=823801040]
 layout_mode = 1
@@ -76,8 +56,8 @@ script = ExtResource("2_gmut2")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionXSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionXText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionXReset")
-value_multiplier = 10.0
 value_name = "camera3D_position_x"
+value_multiplier = 10.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX" unique_id=1294129332]
 layout_mode = 1
@@ -161,8 +141,8 @@ script = ExtResource("2_gmut2")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset")
-value_multiplier = 10.0
 value_name = "camera3D_position_y"
+value_multiplier = 10.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY" unique_id=579108306]
 layout_mode = 1
@@ -249,8 +229,8 @@ script = ExtResource("2_gmut2")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset")
-value_multiplier = 100.0
 value_name = "camera3D_sensitivity_horizontal"
+value_multiplier = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal" unique_id=1194578910]
 layout_mode = 1
@@ -333,8 +313,8 @@ script = ExtResource("2_gmut2")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset")
-value_multiplier = 100.0
 value_name = "camera3D_sensitivity_vertical"
+value_multiplier = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical" unique_id=188265641]
 layout_mode = 1
@@ -417,8 +397,8 @@ script = ExtResource("2_gmut2")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset")
-value_multiplier = 100.0
 value_name = "camera3D_sensitivity_zoom"
+value_multiplier = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom" unique_id=1468415989]
 layout_mode = 1
@@ -504,8 +484,8 @@ script = ExtResource("2_gmut2")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/FOVText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/FOVReset")
-value_multiplier = 1.0
 value_name = "camera3D_fov"
+value_multiplier = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV" unique_id=2030841858]
 layout_mode = 1
