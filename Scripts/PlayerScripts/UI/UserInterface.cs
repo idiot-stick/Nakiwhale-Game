@@ -19,6 +19,11 @@ public partial class UserInterface : UI
 
     public override void _Input(InputEvent @event)
     {
+        exit_pause_menu();
+    }
+
+    public void exit_pause_menu()
+    {
         if (Input.IsActionJustPressed("pause_menu"))
         {
             if (GetTree().Paused == true) // If exiting the paused state

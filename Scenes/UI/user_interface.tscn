@@ -21,9 +21,12 @@ options_menu = NodePath("PausedUI/OptionsMenu")
 layout_mode = 1
 
 [node name="PausedUI" type="Node" parent="." unique_id=1875944068]
+process_mode = 3
 
 [node name="PauseMenu" parent="PausedUI" unique_id=534881796 instance=ExtResource("2_ebjbk")]
 visible = false
 
 [node name="OptionsMenu" parent="PausedUI" unique_id=997769743 instance=ExtResource("4_6q3el")]
 visible = false
+
+[connection signal="exit_pause_menu" from="PausedUI/PauseMenu" to="." method="_on_pause_menu_exit_pause_menu"]

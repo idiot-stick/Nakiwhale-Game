@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_run4o"]
 [ext_resource type="PackedScene" uid="uid://bqrhwma2v74cs" path="res://Scenes/UI/test_options_menu.tscn" id="3_caj0f"]
 
-[node name="OptionsMenu" type="Control" unique_id=997769743]
+[node name="OptionsMenu" type="Control" unique_id=997769743 node_paths=PackedStringArray("menus")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fn00r")
+menus = NodePath("MarginContainer/HBoxContainer/RightSide")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1364309460]
 layout_mode = 1
@@ -72,19 +73,20 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=778003437]
+[node name="TestButton1" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=778003437]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_run4o")
 theme_override_font_sizes/font_size = 24
-text = "Wawa"
+text = "Test wawa"
 
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=14659079]
+[node name="TestButton2" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=14659079]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_run4o")
 theme_override_font_sizes/font_size = 24
-text = "Wawa2"
+text = "Test 2"
+clip_text = true
 
 [node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=1066412864]
 layout_mode = 2
@@ -125,4 +127,15 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
 
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RightSide/Blank" unique_id=909866511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Boo"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/TestButton1" to="." method="_on_test_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/TestButton2" to="." method="_on_test_button_2_pressed"]
