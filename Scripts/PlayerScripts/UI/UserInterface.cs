@@ -19,32 +19,32 @@ public partial class UserInterface : UI
 
     public override void _Input(InputEvent @event)
     {
-        exit_pause_menu();
+        if (Input.IsActionJustPressed("pause_menu"))
+        {
+            exit_pause_menu();
+        }
     }
 
     public void exit_pause_menu()
     {
-        if (Input.IsActionJustPressed("pause_menu"))
+        if (GetTree().Paused == true) // If exiting the paused state
         {
-            if (GetTree().Paused == true) // If exiting the paused state
+            // Sets the visibility of all child nodes of the paused_ui to false
+            for (int i = 0; i < paused_ui.GetChildCount(); ++i)
             {
-                // Sets the visibility of all child nodes of the paused_ui to false
-                for (int i = 0; i < paused_ui.GetChildCount(); ++i)
+                Control child = paused_ui.GetChild(i) as Control;
+                if (child.Visible == true)
                 {
-                    Control child = paused_ui.GetChild(i) as Control;
-                    if (child.Visible == true)
-                    {
-                        PlayerVariables.Instance.previously_selected_menu = GetPathTo(child);
-                        child.Visible = false;
-                    }
+                    PlayerVariables.Instance.previously_selected_menu = GetPathTo(child);
+                    child.Visible = false;
                 }
-            } else // If entering the paused state
-            {
-                toggle_visibility(GetNode(PlayerVariables.Instance.previously_selected_menu) as Control);
             }
-
-            GetTree().Paused = !GetTree().Paused;
-            toggle_mouse_mode();
+        } else // If entering the paused state
+        {
+            toggle_visibility(GetNode(PlayerVariables.Instance.previously_selected_menu) as Control);
         }
+
+        GetTree().Paused = !GetTree().Paused;
+        toggle_mouse_mode();
     }
 }
