@@ -19,7 +19,7 @@ public partial class Walking : Motion
 
         if (!player.IsOnFloor())
         {
-            state_machine.change_state_movement("AirborneIdle");
+            state_machine.change_state_movement("AirborneWalking");
         } else if (direction == Vector3.Zero)
         {
             state_machine.change_state_movement("Idle");

@@ -21,7 +21,7 @@ public partial class Running : Motion
 
         if (!player.IsOnFloor())
         {
-            state_machine.change_state_movement("AirborneIdle");
+            state_machine.change_state_movement("AirborneRunning");
         } else if (direction != Vector3.Zero && !Input.IsActionPressed("sprint"))
         {
             state_machine.change_state_movement("Walking");

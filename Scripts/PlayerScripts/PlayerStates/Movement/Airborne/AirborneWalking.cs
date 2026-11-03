@@ -7,6 +7,7 @@ public partial class AirborneWalking : Motion
     {
         GD.Print(Name);
         EmitSignal(SignalName.state_animation_change, "airborne", "walking");
+        EmitSignal(SignalName.change_fov, 1, 0.1);
     }
 
     public override void update(float delta)
@@ -19,7 +20,7 @@ public partial class AirborneWalking : Motion
 
         if (player.IsOnFloor())
         {   
-            state_machine.change_state_movement("Idle");
+            state_machine.change_state_movement("Walking");
         } else if (direction == Vector3.Zero)
         {
             state_machine.change_state_movement("AirborneIdle");
