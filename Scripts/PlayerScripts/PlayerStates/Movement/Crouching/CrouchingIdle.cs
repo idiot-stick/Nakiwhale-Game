@@ -7,7 +7,6 @@ public partial class CrouchingIdle : Motion
     {
         GD.Print(Name);
         EmitSignal(SignalName.state_animation_change, "crouching", "idle");
-        GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D").Play();
     }
 
     public override void update(float delta)
