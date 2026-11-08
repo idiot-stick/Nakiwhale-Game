@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://u7pv4t7a4rwe" path="res://Scripts/PlayerScripts/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b4rf47ba5kq6d" path="res://Assets/NAKI_WHALE_2.png" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://qa6mtlfer57p" path="res://Scripts/PlayerScripts/Camera.cs" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://bo5nabyq3g8mg" path="res://Scripts/StateMachine/StateMachine.cs" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://bo5nabyq3g8mg" path="res://Scripts/PlayerScripts/StateMachine/StateMachine.cs" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dtjaxy7s52rh1" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Regular/Idle.cs" id="5_fkybt"]
 [ext_resource type="Script" uid="uid://b7w2f1uwm16fi" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Regular/Walking.cs" id="6_x3wgy"]
 [ext_resource type="Script" uid="uid://b87gapneavd77" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Regular/Running.cs" id="7_8erm5"]
@@ -15,10 +15,6 @@
 [ext_resource type="Script" uid="uid://bjqucj0src6dl" path="res://Scripts/PlayerScripts/Animation.cs" id="12_7dp3o"]
 [ext_resource type="Script" uid="uid://bqr8gngyi4luu" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Airborne/AirborneWalking.cs" id="12_qqcod"]
 [ext_resource type="Script" uid="uid://bc5xjwimwvdy8" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Airborne/AirborneRunning.cs" id="13_igrcy"]
-[ext_resource type="AudioStream" uid="uid://ioly1p76jjfq" path="res://Assets/Audio/landing.mp3" id="16_fs7ks"]
-[ext_resource type="AudioStream" uid="uid://bh5oiivipau22" path="res://Assets/Audio/walking.mp3" id="17_l6n3p"]
-[ext_resource type="AudioStream" uid="uid://b8ja5qk73saxs" path="res://Assets/Audio/running.mp3" id="18_olqyp"]
-[ext_resource type="Script" uid="uid://1wgw44vqxmhb" path="res://Scripts/PlayerScripts/Audio.cs" id="19_wpjfl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6oxv2"]
 height = 1.5
@@ -528,20 +524,6 @@ nodes/Actions/node = SubResource("AnimationNodeTransition_vfarp")
 nodes/Actions/position = Vector2(128, 1616)
 node_connections = [&"output", 0, &"controller", &"regular", 0, &"idle", &"regular", 1, &"walking", &"regular", 2, &"running", &"crouching", 0, &"crouching_idle", &"crouching", 1, &"crouching_walking", &"airborne ", 0, &"airborne_idle", &"airborne ", 1, &"airborne_walking", &"airborne ", 2, &"airborne_running", &"controller", 0, &"regular", &"controller", 1, &"crouching", &"controller", 2, &"airborne ", &"controller", 3, &"Actions", &"Actions", 0, &"dashing"]
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_6oxv2"]
-clip_count = 4
-clip_0/name = &"landing"
-clip_0/stream = ExtResource("16_fs7ks")
-clip_0/auto_advance = 0
-clip_1/name = &"crouching"
-clip_1/auto_advance = 0
-clip_2/name = &"walking"
-clip_2/stream = ExtResource("17_l6n3p")
-clip_2/auto_advance = 0
-clip_3/name = &"running"
-clip_3/stream = ExtResource("18_olqyp")
-clip_3/auto_advance = 0
-
 [node name="Player" type="CharacterBody3D" unique_id=533158011]
 collision_layer = 2
 script = ExtResource("1_cvnsp")
@@ -639,10 +621,5 @@ parameters/Actions/current_state = ""
 parameters/Actions/transition_request = "dashing"
 parameters/Actions/current_index = -1
 script = ExtResource("12_7dp3o")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=243499639]
-stream = SubResource("AudioStreamInteractive_6oxv2")
-autoplay = true
-script = ExtResource("19_wpjfl")
 
 [connection signal="camera_rotate" from="Camera" to="." method="_on_camera_rotate"]

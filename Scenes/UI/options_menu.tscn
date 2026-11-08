@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b227b6e8qoyv4"]
 
-[ext_resource type="Script" uid="uid://ceqth48o5dtcg" path="res://Scripts/PlayerScripts/UI/OptionsMenu.cs" id="1_fn00r"]
+[ext_resource type="Script" uid="uid://ceqth48o5dtcg" path="res://Scripts/UI/OptionsMenu.cs" id="1_fn00r"]
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_run4o"]
-[ext_resource type="PackedScene" uid="uid://bqrhwma2v74cs" path="res://Scenes/UI/test_options_menu.tscn" id="3_caj0f"]
+[ext_resource type="PackedScene" uid="uid://bqrhwma2v74cs" path="res://Scenes/UI/camera_options_menu.tscn" id="3_caj0f"]
+[ext_resource type="PackedScene" uid="uid://cj20qidddkamb" path="res://Scenes/UI/audio_options_menu.tscn" id="4_yjqj2"]
 
 [node name="OptionsMenu" type="Control" unique_id=997769743 node_paths=PackedStringArray("menus")]
 layout_mode = 3
@@ -73,34 +74,28 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="TestButton1" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=778003437]
+[node name="CameraButton" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=778003437]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_run4o")
 theme_override_font_sizes/font_size = 24
-text = "Test wawa"
+text = "Camera"
 
-[node name="TestButton2" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=14659079]
+[node name="AudioButton" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=14659079]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_run4o")
 theme_override_font_sizes/font_size = 24
-text = "Test 2"
+text = "Audio
+"
 clip_text = true
 
-[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=1066412864]
+[node name="WawaButton" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=1066412864]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_run4o")
 theme_override_font_sizes/font_size = 24
-text = "Wawa3"
-
-[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons" unique_id=2107130479]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_run4o")
-theme_override_font_sizes/font_size = 24
-text = "Wawa4"
+text = "Wawa"
 
 [node name="RightSide" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=999567559]
 layout_mode = 2
@@ -109,15 +104,36 @@ theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 75
 
-[node name="TestOptionsMenu" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1934655998]
+[node name="CameraOptionsMenu" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1934655998]
 custom_minimum_size = Vector2(1100, 855)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 1, 1, 0)
 
-[node name="TestOptionsMenu" parent="MarginContainer/HBoxContainer/RightSide/TestOptionsMenu" unique_id=686205465 instance=ExtResource("3_caj0f")]
+[node name="CameraOptionsMenu" parent="MarginContainer/HBoxContainer/RightSide/CameraOptionsMenu" unique_id=686205465 instance=ExtResource("3_caj0f")]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="AudioOptionsMenu" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1189519321]
+visible = false
+custom_minimum_size = Vector2(1100, 855)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0)
+
+[node name="AudioOptionsMenu" parent="MarginContainer/HBoxContainer/RightSide/AudioOptionsMenu" unique_id=2139245607 instance=ExtResource("4_yjqj2")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Blank" type="ColorRect" parent="MarginContainer/HBoxContainer/RightSide" unique_id=1355033793]
 visible = false
@@ -137,5 +153,6 @@ grow_vertical = 2
 text = "Boo"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/TestButton1" to="." method="_on_test_button_1_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/TestButton2" to="." method="_on_test_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/CameraButton" to="." method="_on_camera_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSide/VBoxContainer/Categories/MarginContainer/Buttons/WawaButton" to="." method="_on_wawa_button_pressed"]

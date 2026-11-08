@@ -33,12 +33,17 @@ public partial class OptionsMenu : UI
         toggle_visibility(this);
     }
 
-    private void _on_test_button_1_pressed()
+    private void _on_camera_button_pressed()
     {
-        toggle_menu_visibility("TestOptionsMenu");
+        toggle_menu_visibility("CameraOptionsMenu");
     }
 
-    private void _on_test_button_2_pressed()
+    private void _on_audio_button_pressed()
+    {
+        toggle_menu_visibility("AudioOptionsMenu");
+    }
+
+    private void _on_wawa_button_pressed()
     {
         toggle_menu_visibility("Blank");
     }

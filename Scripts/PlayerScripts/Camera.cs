@@ -6,7 +6,7 @@ public partial class Camera : Node3D
     [Signal] public delegate void camera_rotateEventHandler(float value);
 
 
-    [Export] public float CameraZoomMaximum = 4;
+    [Export] public float CameraZoomMaximum = 8;
     [Export] public float CameraZoomMinimum = 0.5f;
 
     private Vector3 camera_target_position = Vector3.Zero;

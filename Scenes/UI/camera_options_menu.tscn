@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bqrhwma2v74cs"]
 
-[ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_1p8n6"]
-[ext_resource type="Script" uid="uid://bfeb4h7a3y5yk" path="res://Scripts/PlayerScripts/UI/SettingsFieldSlider.cs" id="2_gmut2"]
-[ext_resource type="Texture2D" uid="uid://5b5pxcf0h6pr" path="res://Assets/UI/redo_image.png" id="3_pddbs"]
-[ext_resource type="Texture2D" uid="uid://5yuph3525aby" path="res://Assets/UI/redo_hover_image.png" id="4_pddbs"]
+[ext_resource type="Script" uid="uid://bfeb4h7a3y5yk" path="res://Scripts/UI/SettingsFieldSlider.cs" id="1_eisb0"]
+[ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="2_cavfb"]
+[ext_resource type="Texture2D" uid="uid://5b5pxcf0h6pr" path="res://Assets/UI/redo_image.png" id="3_tak7i"]
+[ext_resource type="Texture2D" uid="uid://5yuph3525aby" path="res://Assets/UI/redo_hover_image.png" id="4_l24dl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oxv2"]
 bg_color = Color(0.66, 0.66, 0.66, 0.42745098)
 
-[node name="TestOptionsMenu" type="Control" unique_id=686205465]
+[node name="CameraOptionsMenu" type="Control" unique_id=686205465]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +52,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
-script = ExtResource("2_gmut2")
+script = ExtResource("1_eisb0")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionXSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionXText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionXReset")
@@ -74,7 +74,7 @@ theme_override_constants/margin_bottom = 3
 [node name="Label" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer" unique_id=1365533232]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 24
 text = "Camera position X"
 
@@ -94,7 +94,7 @@ theme_override_constants/separation = 119
 [node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=24015766]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1383615774]
@@ -109,14 +109,14 @@ max_value = 30.0
 
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1198666517]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "30 "
 
 [node name="CameraPositionXText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionX/MarginContainer/MarginContainer/HBoxContainer" unique_id=1582543686]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
 alignment = 1
@@ -127,8 +127,8 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_pddbs")
-texture_hover = ExtResource("4_pddbs")
+texture_normal = ExtResource("3_tak7i")
+texture_hover = ExtResource("4_l24dl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -137,7 +137,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
-script = ExtResource("2_gmut2")
+script = ExtResource("1_eisb0")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraPositionYSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionYText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraPositionYReset")
@@ -159,7 +159,7 @@ theme_override_constants/margin_bottom = 3
 [node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer" unique_id=727890347]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 24
 text = "Camera position Y"
 
@@ -179,7 +179,7 @@ theme_override_constants/separation = 119
 [node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2047975690]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1399445239]
@@ -194,14 +194,14 @@ max_value = 20.0
 
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=542283069]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "20 "
 
 [node name="CameraPositionYText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraPositionY/MarginContainer/MarginContainer/HBoxContainer" unique_id=1470621868]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
 alignment = 1
@@ -212,8 +212,8 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_pddbs")
-texture_hover = ExtResource("4_pddbs")
+texture_normal = ExtResource("3_tak7i")
+texture_hover = ExtResource("4_l24dl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -225,7 +225,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
-script = ExtResource("2_gmut2")
+script = ExtResource("1_eisb0")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityHorizontalSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityHorizontalReset")
@@ -247,7 +247,7 @@ theme_override_constants/margin_bottom = 3
 [node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer" unique_id=1262834958]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 24
 text = "Camera sensitivity horizontal"
 
@@ -267,7 +267,7 @@ theme_override_constants/separation = 119
 [node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=969077055]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=69365543]
@@ -281,14 +281,14 @@ size_flags_vertical = 4
 
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=672719587]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "100"
 
 [node name="CameraSensitivityHorizontalText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityHorizontal/MarginContainer/MarginContainer/HBoxContainer" unique_id=1976892793]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
 alignment = 1
@@ -299,8 +299,8 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_pddbs")
-texture_hover = ExtResource("4_pddbs")
+texture_normal = ExtResource("3_tak7i")
+texture_hover = ExtResource("4_l24dl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -309,7 +309,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
-script = ExtResource("2_gmut2")
+script = ExtResource("1_eisb0")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityVerticalSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityVerticalReset")
@@ -331,7 +331,7 @@ theme_override_constants/margin_bottom = 3
 [node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer" unique_id=856204419]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 24
 text = "Camera sensitivity vertical"
 
@@ -351,7 +351,7 @@ theme_override_constants/separation = 119
 [node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2063011651]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=236389709]
@@ -365,14 +365,14 @@ size_flags_vertical = 4
 
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1208411956]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "100"
 
 [node name="CameraSensitivityVerticalText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityVertical/MarginContainer/MarginContainer/HBoxContainer" unique_id=58537628]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
 alignment = 1
@@ -383,8 +383,8 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_pddbs")
-texture_hover = ExtResource("4_pddbs")
+texture_normal = ExtResource("3_tak7i")
+texture_hover = ExtResource("4_l24dl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -393,7 +393,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
-script = ExtResource("2_gmut2")
+script = ExtResource("1_eisb0")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/CameraSensitivityZoomSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/CameraSensitivityZoomReset")
@@ -415,7 +415,7 @@ theme_override_constants/margin_bottom = 3
 [node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer" unique_id=2088962427]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 24
 text = "Camera zoom sensitivity"
 
@@ -435,7 +435,7 @@ theme_override_constants/separation = 119
 [node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=744094871]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = " 0"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2013536964]
@@ -449,14 +449,14 @@ size_flags_vertical = 4
 
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=583131194]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "100"
 
 [node name="CameraSensitivityZoomText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/CameraSensitivityZoom/MarginContainer/MarginContainer/HBoxContainer" unique_id=694698228]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
 alignment = 1
@@ -467,8 +467,8 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_pddbs")
-texture_hover = ExtResource("4_pddbs")
+texture_normal = ExtResource("3_tak7i")
+texture_hover = ExtResource("4_l24dl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -480,7 +480,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
-script = ExtResource("2_gmut2")
+script = ExtResource("1_eisb0")
 slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/FOVSlider")
 text = NodePath("MarginContainer/MarginContainer/HBoxContainer/FOVText")
 reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/FOVReset")
@@ -502,7 +502,7 @@ theme_override_constants/margin_bottom = 3
 [node name="CategoryName" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer" unique_id=1434978555]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 24
 text = "FOV (Does not work AKLSDJHSADSJAODAJL)"
 
@@ -522,7 +522,7 @@ theme_override_constants/separation = 119
 [node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2116987935]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "70"
 
 [node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1228910521]
@@ -539,14 +539,14 @@ value = 70.0
 
 [node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=693005139]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 text = "90 "
 
 [node name="FOVText" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/FOV/MarginContainer/MarginContainer/HBoxContainer" unique_id=1950101687]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_1p8n6")
+theme_override_fonts/font = ExtResource("2_cavfb")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_6oxv2")
 alignment = 1
@@ -557,7 +557,7 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_pddbs")
-texture_hover = ExtResource("4_pddbs")
+texture_normal = ExtResource("3_tak7i")
+texture_hover = ExtResource("4_l24dl")
 ignore_texture_size = true
 stretch_mode = 0

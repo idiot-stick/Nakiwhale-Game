@@ -15,6 +15,10 @@ run/main_scene="uid://cee6dr3v5uho5"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="uid://b4rf47ba5kq6d"
 
+[audio]
+
+buses/default_bus_layout="uid://771n2yaga0jm"
+
 [autoload]
 
 PlayerVariables="*uid://4ssiu4dke7si"
@@ -34,7 +38,7 @@ project/assembly_name="Naki Whale"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/options_field/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

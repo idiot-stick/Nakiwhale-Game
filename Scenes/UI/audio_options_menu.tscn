@@ -1,0 +1,284 @@
+[gd_scene format=3 uid="uid://cj20qidddkamb"]
+
+[ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_kgqsh"]
+[ext_resource type="Texture2D" uid="uid://5b5pxcf0h6pr" path="res://Assets/UI/redo_image.png" id="2_7g5qu"]
+[ext_resource type="Texture2D" uid="uid://5yuph3525aby" path="res://Assets/UI/redo_hover_image.png" id="3_r224j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y67v6"]
+bg_color = Color(0.66, 0.66, 0.66, 0.42745098)
+
+[node name="AudioOptionsMenu" type="Control" unique_id=2139245607]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1348163299]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer" unique_id=1993993619]
+custom_minimum_size = Vector2(1100, 855)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background" unique_id=150320197]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 50
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/Background/MarginContainer" unique_id=1113445498]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MasterVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=539675623]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume" unique_id=525518642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer" unique_id=1837062722]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_kgqsh")
+theme_override_font_sizes/font_size = 24
+text = "Master Volume (Unimplemented)"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer" unique_id=1673987169]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer" unique_id=694376585]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=969500645]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1735963148]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_kgqsh")
+text = " 0"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=2124559952]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=1130382893]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=180521028]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kgqsh")
+text = "100"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=766421274]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_kgqsh")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_y67v6")
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/MasterVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=17296464]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_7g5qu")
+texture_hover = ExtResource("3_r224j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SfxVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1777206079]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume" unique_id=432022109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer" unique_id=549581370]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_kgqsh")
+theme_override_font_sizes/font_size = 24
+text = "Sound Effects Volume (Unimplemented)"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer" unique_id=882066212]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer" unique_id=390543880]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=1601501723]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1946032313]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_kgqsh")
+text = " 0"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1019536410]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=249885300]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1824133505]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kgqsh")
+text = "100"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=640261274]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_kgqsh")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_y67v6")
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=3531773]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_7g5qu")
+texture_hover = ExtResource("3_r224j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MusicVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=20928572]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume" unique_id=1423679067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer" unique_id=118392275]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_kgqsh")
+theme_override_font_sizes/font_size = 24
+text = "Music Volume (Unimplemented)"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer" unique_id=2103199842]
+layout_mode = 2
+theme_override_constants/margin_left = 575
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer" unique_id=1853623034]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="HBoxContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=908342751]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 119
+
+[node name="MinValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1400845679]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_kgqsh")
+text = " 0"
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=46211259]
+layout_mode = 2
+theme_override_constants/margin_left = -110
+theme_override_constants/margin_right = -110
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer/Slider/Slider" unique_id=1684541901]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MaxValue" type="Label" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer/Slider" unique_id=1530989129]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kgqsh")
+text = "100"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=837669177]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_kgqsh")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_y67v6")
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer/MarginContainer/HBoxContainer" unique_id=481864292]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_7g5qu")
+texture_hover = ExtResource("3_r224j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Control" type="Control" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1646594832]
+layout_mode = 2

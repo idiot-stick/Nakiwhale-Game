@@ -7,6 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bmxe0ndd5egqg" path="res://Assets/Textures/Purple/texture_02.png" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://bfed6ncgd28yk" path="res://Assets/Textures/Dark/texture_03.png" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://pdwncij2gbb5" path="res://Scenes/UI/user_interface.tscn" id="6_21xkr"]
+[ext_resource type="AudioStream" uid="uid://b1e5q7bur3vnx" path="res://Assets/Audio/Music/TUNIC (Original Soundtrack) - 02 Memories of Memories _ Lifeformed × Janice Kwan 4.mp3" id="8_344ge"]
+[ext_resource type="Script" uid="uid://cka7f53q2c5qp" path="res://Scripts/WorldScripts/WorldAudioManager.cs" id="8_jkdf5"]
+[ext_resource type="AudioStream" uid="uid://ciqr3u2hpowbd" path="res://Assets/Audio/Music/The Knight.mp3" id="9_6iyac"]
+[ext_resource type="AudioStream" uid="uid://dfl75slbqr86e" path="res://Assets/Audio/Music/Redwood Colonnade.mp3" id="10_fdnlq"]
+[ext_resource type="AudioStream" uid="uid://dgaiy23bqo8pg" path="res://Assets/Audio/Music/The Weight of Rain 4.mp3" id="11_jkdf5"]
+[ext_resource type="AudioStream" uid="uid://b0wrrr281xxuh" path="res://Assets/Audio/Music/To Far Shores.mp3" id="12_wsu2k"]
+[ext_resource type="AudioStream" uid="uid://0e0ph0o7kyo0" path="res://Assets/Audio/Music/MEGALOVANIA 4.mp3" id="14_wsu2k"]
 
 [sub_resource type="Environment" id="Environment_6oxv2"]
 fog_enabled = true
@@ -58,6 +65,43 @@ size = Vector3(40, 10, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ikl8t"]
 size = Vector3(40, 10, 0.2)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_fd4e3"]
+shuffle = true
+stream_count = 5
+stream_0 = ExtResource("8_344ge")
+stream_1 = ExtResource("9_6iyac")
+stream_2 = ExtResource("10_fdnlq")
+stream_3 = ExtResource("11_jkdf5")
+stream_4 = ExtResource("12_wsu2k")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_k12tt"]
+shuffle = true
+stream_count = 1
+stream_0 = ExtResource("14_wsu2k")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_h4iuc"]
+clip_count = 2
+clip_0/name = &"Test1"
+clip_0/stream = SubResource("AudioStreamPlaylist_fd4e3")
+clip_0/auto_advance = 0
+clip_1/name = &"Test2"
+clip_1/stream = SubResource("AudioStreamPlaylist_k12tt")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 2.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 0): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+}
+}
 
 [node name="Main" type="Node" unique_id=272859766]
 
@@ -139,3 +183,12 @@ metadata/_edit_group_ = true
 [node name="UserInterface" parent="." unique_id=823725355 instance=ExtResource("6_21xkr")]
 process_mode = 3
 z_index = 1
+
+[node name="WorldAudioManager" type="Node" parent="." unique_id=1372339553 node_paths=PackedStringArray("background_audio_player")]
+script = ExtResource("8_jkdf5")
+background_audio_player = NodePath("BackgroundMusic")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1419276432]
+stream = SubResource("AudioStreamInteractive_h4iuc")
+volume_db = -30.0
+autoplay = true

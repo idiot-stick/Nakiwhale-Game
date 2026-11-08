@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e6rs63evnkbq"]
 
-[ext_resource type="Script" uid="uid://cd6pvaati22v8" path="res://Scripts/PlayerScripts/UI/PauseMenu.cs" id="1_8rf44"]
+[ext_resource type="Script" uid="uid://cd6pvaati22v8" path="res://Scripts/UI/PauseMenu.cs" id="1_8rf44"]
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_rrvs5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrvs5"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0e0ph0o7kyo0"
+path="res://.godot/imported/MEGALOVANIA 4.mp3-54f38dcc15191c9161b7dd39a7fd9d09.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/MEGALOVANIA 4.mp3"
+dest_files=["res://.godot/imported/MEGALOVANIA 4.mp3-54f38dcc15191c9161b7dd39a7fd9d09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
