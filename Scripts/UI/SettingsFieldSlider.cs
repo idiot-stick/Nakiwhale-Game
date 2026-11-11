@@ -1,6 +1,7 @@
 using Godot;
 using Godot.NativeInterop;
 using System;
+using System.Threading.Tasks;
 
 public partial class SettingsFieldSlider : Control
 {
@@ -16,7 +17,7 @@ public partial class SettingsFieldSlider : Control
     private float initial_value;
     private PlayerVariables player_variables;
 
-    public override void _Ready()
+    public override async void _Ready()
     {
         slider.ValueChanged += slider_value_changed;
         text.TextSubmitted += text_changed;
@@ -24,11 +25,18 @@ public partial class SettingsFieldSlider : Control
 
         player_variables = GetNode<PlayerVariables>("/root/PlayerVariables");
 
-        slider.Value = (float)player_variables.Get(value_name) * value_multiplier;
+        await set_value(); // Ensures this part of the function runs after every other _ready() call to prevent a race condition
         text.Text = slider.Value.ToString();
         initial_value = (float)slider.Value;
 
         reset_button.Visible = false;
+    }
+
+    private async Task set_value()
+    {
+        await ToSignal(GetTree().Root, SignalName.Ready);
+
+        slider.Value = (float)player_variables.Get(value_name) * value_multiplier;
     }
 
     private void slider_value_changed(double value)

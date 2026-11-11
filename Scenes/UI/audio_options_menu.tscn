@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bvnpvuwae8hr1" path="res://Assets/Fonts/TurretRoad-Bold.ttf" id="1_kgqsh"]
 [ext_resource type="Texture2D" uid="uid://5b5pxcf0h6pr" path="res://Assets/UI/redo_image.png" id="2_7g5qu"]
 [ext_resource type="Texture2D" uid="uid://5yuph3525aby" path="res://Assets/UI/redo_hover_image.png" id="3_r224j"]
+[ext_resource type="Script" uid="uid://bfeb4h7a3y5yk" path="res://Scripts/UI/SettingsFieldSlider.cs" id="4_kgqsh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y67v6"]
 bg_color = Color(0.66, 0.66, 0.66, 0.42745098)
@@ -202,11 +203,17 @@ texture_hover = ExtResource("3_r224j")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="MusicVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=20928572]
+[node name="MusicVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=20928572 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("4_kgqsh")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/HSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/LineEdit")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/TextureButton")
+value_name = "music_volume"
+value_multiplier = 2500.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume" unique_id=1423679067]
 layout_mode = 1
@@ -225,7 +232,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_kgqsh")
 theme_override_font_sizes/font_size = 24
-text = "Music Volume (Unimplemented)"
+text = "Music Volume"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/MusicVolume/MarginContainer" unique_id=2103199842]
 layout_mode = 2

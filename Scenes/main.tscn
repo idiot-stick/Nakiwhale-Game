@@ -180,15 +180,15 @@ metadata/_edit_group_ = true
 
 [node name="Player" parent="." unique_id=533158011 instance=ExtResource("1_jjgbg")]
 
-[node name="UserInterface" parent="." unique_id=823725355 instance=ExtResource("6_21xkr")]
-process_mode = 3
-z_index = 1
-
 [node name="WorldAudioManager" type="Node" parent="." unique_id=1372339553 node_paths=PackedStringArray("background_audio_player")]
 script = ExtResource("8_jkdf5")
 background_audio_player = NodePath("BackgroundMusic")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1419276432]
 stream = SubResource("AudioStreamInteractive_h4iuc")
-volume_db = -30.0
+volume_db = -40.0
 autoplay = true
+
+[node name="UserInterface" parent="." unique_id=823725355 instance=ExtResource("6_21xkr")]
+process_mode = 3
+z_index = 1
