@@ -5,16 +5,33 @@ public partial class WorldAudioManager : Node
 {
     [Export] AudioStreamPlayer background_audio_player;
 
+    private int master_bus_index = AudioServer.GetBusIndex("Master");
+    private int music_bus_index = AudioServer.GetBusIndex("music");
+
     public override void _Ready()
     {
-        PlayerVariables.Instance.music_volume = Mathf.DbToLinear(background_audio_player.VolumeDb);
+        PlayerVariables.Instance.master_volume = AudioServer.GetBusVolumeLinear(master_bus_index);
+        PlayerVariables.Instance.music_volume = AudioServer.GetBusVolumeLinear(music_bus_index);
     }
 
     public override void _Process(double delta)
     {
-        if (PlayerVariables.Instance.music_volume != Mathf.DbToLinear(background_audio_player.VolumeDb))
+        // Basically checks !(value - 0.01 < target_value < value + 0.01)
+
+        if (
+            !((AudioServer.GetBusVolumeLinear(master_bus_index) - 0.01) < PlayerVariables.Instance.master_volume &&
+            PlayerVariables.Instance.master_volume < (AudioServer.GetBusVolumeLinear(master_bus_index) + 0.01))
+        )
         {
-            background_audio_player.VolumeDb = Mathf.LinearToDb(PlayerVariables.Instance.music_volume);
+            AudioServer.SetBusVolumeLinear(master_bus_index, PlayerVariables.Instance.master_volume);
+        }
+
+        if (
+            !((AudioServer.GetBusVolumeLinear(music_bus_index) - 0.01) < PlayerVariables.Instance.music_volume &&
+            PlayerVariables.Instance.music_volume < (AudioServer.GetBusVolumeLinear(music_bus_index) + 0.01)) 
+        )
+        {
+            AudioServer.SetBusVolumeLinear(music_bus_index, PlayerVariables.Instance.music_volume);
         }
     }
 

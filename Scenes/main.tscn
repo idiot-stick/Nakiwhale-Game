@@ -186,8 +186,8 @@ background_audio_player = NodePath("BackgroundMusic")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1419276432]
 stream = SubResource("AudioStreamInteractive_h4iuc")
-volume_db = -40.0
 autoplay = true
+bus = &"music"
 
 [node name="UserInterface" parent="." unique_id=823725355 instance=ExtResource("6_21xkr")]
 process_mode = 3
