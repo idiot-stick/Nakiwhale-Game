@@ -64,12 +64,10 @@ public partial class Camera : Node3D
             camera_target_position = new Vector3(PlayerVariables.Instance.camera3D_position_x, PlayerVariables.Instance.camera3D_position_y, camera_target_position.Z);
         }
 
-        // Was supposed to let you change the camera fov from the settings, but it broke the _on_change_fov() signal
-
-        /*if (camera3D.Fov != PlayerVariables.Instance.camera3D_fov)
+        if (camera3D.Fov != PlayerVariables.Instance.camera3D_fov)
         {
-            camera3D.Fov = Mathf.Lerp(camera3D.Fov, PlayerVariables.Instance.camera3D_fov, 0.2f);
-        }*/
+            _on_change_fov(0, 0.2f);
+        }
 
 
         camera3D.GlobalPosition = camera3D.GlobalPosition.Lerp(raycast_collision_point, 0.2f);
