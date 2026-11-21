@@ -131,11 +131,17 @@ texture_hover = ExtResource("3_r224j")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SfxVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1777206079]
+[node name="SfxVolume" type="ColorRect" parent="MarginContainer/Background/MarginContainer/Settings" unique_id=1777206079 node_paths=PackedStringArray("slider", "text", "reset_button")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.5764706)
+script = ExtResource("4_kgqsh")
+slider = NodePath("MarginContainer/MarginContainer/HBoxContainer/Slider/Slider/HSlider")
+text = NodePath("MarginContainer/MarginContainer/HBoxContainer/LineEdit")
+reset_button = NodePath("MarginContainer/MarginContainer/HBoxContainer/TextureButton")
+value_name = "sfx_volume"
+value_multiplier = 195.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume" unique_id=432022109]
 layout_mode = 1

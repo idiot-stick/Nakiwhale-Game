@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bjqucj0src6dl" path="res://Scripts/PlayerScripts/Animation.cs" id="12_7dp3o"]
 [ext_resource type="Script" uid="uid://bqr8gngyi4luu" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Airborne/AirborneWalking.cs" id="12_qqcod"]
 [ext_resource type="Script" uid="uid://bc5xjwimwvdy8" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Airborne/AirborneRunning.cs" id="13_igrcy"]
+[ext_resource type="AudioStream" uid="uid://b8ja5qk73saxs" path="res://Assets/Audio/SFX/running.mp3" id="16_fd4e3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6oxv2"]
 height = 1.5
@@ -332,7 +333,21 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125),
 "transitions": PackedFloat32Array(2.5491207, 2.0705302),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.01, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.025, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_olqyp"]
@@ -349,7 +364,21 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(2.219139, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.01, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.025, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_igrcy"]
@@ -492,7 +521,7 @@ animation = &"running"
 animation = &"walking"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ikl8t"]
-graph_offset = Vector2(-446.72006, 66.02185)
+graph_offset = Vector2(-282.44562, 66.94197)
 nodes/output/position = Vector2(704, 592)
 nodes/idle/node = SubResource("AnimationNodeAnimation_ypfnu")
 nodes/idle/position = Vector2(-96, -112)
@@ -523,6 +552,12 @@ nodes/airborne_running/position = Vector2(-112, 1280)
 nodes/Actions/node = SubResource("AnimationNodeTransition_vfarp")
 nodes/Actions/position = Vector2(128, 1616)
 node_connections = [&"output", 0, &"controller", &"regular", 0, &"idle", &"regular", 1, &"walking", &"regular", 2, &"running", &"crouching", 0, &"crouching_idle", &"crouching", 1, &"crouching_walking", &"airborne ", 0, &"airborne_idle", &"airborne ", 1, &"airborne_walking", &"airborne ", 2, &"airborne_running", &"controller", 0, &"regular", &"controller", 1, &"crouching", &"controller", 2, &"airborne ", &"controller", 3, &"Actions", &"Actions", 0, &"dashing"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ikl8t"]
+clip_count = 1
+clip_0/name = &"Footsteps"
+clip_0/stream = ExtResource("16_fd4e3")
+clip_0/auto_advance = 0
 
 [node name="Player" type="CharacterBody3D" unique_id=533158011]
 collision_layer = 2
@@ -621,5 +656,10 @@ parameters/Actions/current_state = ""
 parameters/Actions/transition_request = "dashing"
 parameters/Actions/current_index = -1
 script = ExtResource("12_7dp3o")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1580965953]
+stream = SubResource("AudioStreamInteractive_ikl8t")
+unit_size = 3.0
+bus = &"sfx"
 
 [connection signal="camera_rotate" from="Camera" to="." method="_on_camera_rotate"]

@@ -21,7 +21,6 @@ public partial class PlayerVariables : Node
     public string current_playlist;
     public float master_volume;
     public float music_volume;
-    public bool music_enabled;
     public float sfx_volume;
 
     public override void _Ready()

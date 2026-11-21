@@ -7,11 +7,13 @@ public partial class WorldAudioManager : Node
 
     private int master_bus_index = AudioServer.GetBusIndex("Master");
     private int music_bus_index = AudioServer.GetBusIndex("music");
+    private int sfx_bus_index = AudioServer.GetBusIndex("sfx");
 
     public override void _Ready()
     {
         PlayerVariables.Instance.master_volume = AudioServer.GetBusVolumeLinear(master_bus_index);
         PlayerVariables.Instance.music_volume = AudioServer.GetBusVolumeLinear(music_bus_index);
+        PlayerVariables.Instance.sfx_volume = AudioServer.GetBusVolumeLinear(sfx_bus_index);
     }
 
     public override void _Process(double delta)
@@ -32,6 +34,14 @@ public partial class WorldAudioManager : Node
         )
         {
             AudioServer.SetBusVolumeLinear(music_bus_index, PlayerVariables.Instance.music_volume);
+        }
+
+        if (
+            !((AudioServer.GetBusVolumeLinear(sfx_bus_index) - 0.01) < PlayerVariables.Instance.sfx_volume &&
+            PlayerVariables.Instance.sfx_volume < (AudioServer.GetBusVolumeLinear(sfx_bus_index) + 0.01)) 
+        )
+        {
+            AudioServer.SetBusVolumeLinear(sfx_bus_index, PlayerVariables.Instance.sfx_volume);
         }
     }
 
