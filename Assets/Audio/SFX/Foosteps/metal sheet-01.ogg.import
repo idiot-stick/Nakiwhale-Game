@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c3uap1fl626c2"
+path="res://.godot/imported/metal sheet-01.ogg-1a970bb123a89f89f1f8d55d629c8d9c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Foosteps/metal sheet-01.ogg"
+dest_files=["res://.godot/imported/metal sheet-01.ogg-1a970bb123a89f89f1f8d55d629c8d9c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

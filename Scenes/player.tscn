@@ -15,7 +15,12 @@
 [ext_resource type="Script" uid="uid://bjqucj0src6dl" path="res://Scripts/PlayerScripts/Animation.cs" id="12_7dp3o"]
 [ext_resource type="Script" uid="uid://bqr8gngyi4luu" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Airborne/AirborneWalking.cs" id="12_qqcod"]
 [ext_resource type="Script" uid="uid://bc5xjwimwvdy8" path="res://Scripts/PlayerScripts/PlayerStates/Movement/Airborne/AirborneRunning.cs" id="13_igrcy"]
-[ext_resource type="AudioStream" uid="uid://b8ja5qk73saxs" path="res://Assets/Audio/SFX/running.mp3" id="16_fd4e3"]
+[ext_resource type="AudioStream" uid="uid://deunyf3rct60" path="res://Assets/Audio/SFX/Foosteps/plastic-01.ogg" id="16_fs7ks"]
+[ext_resource type="Script" uid="uid://cppxyi4gobt7o" path="res://Scripts/PlayerScripts/AudioManager.cs" id="16_olqyp"]
+[ext_resource type="AudioStream" uid="uid://bdje13chhvwon" path="res://Assets/Audio/SFX/Foosteps/plastic-02.ogg" id="17_l6n3p"]
+[ext_resource type="AudioStream" uid="uid://cca37cp0lwn1j" path="res://Assets/Audio/SFX/Foosteps/plastic-03.ogg" id="18_olqyp"]
+[ext_resource type="AudioStream" uid="uid://dbghygkqv76ec" path="res://Assets/Audio/SFX/Foosteps/plastic-04.ogg" id="19_wpjfl"]
+[ext_resource type="AudioStream" uid="uid://crowoni3m2ljo" path="res://Assets/Audio/SFX/landing.mp3" id="21_wpjfl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6oxv2"]
 height = 1.5
@@ -338,7 +343,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/path = NodePath("AudioManager/Loops")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -369,7 +374,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/path = NodePath("AudioManager/Loops")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -553,10 +558,23 @@ nodes/Actions/node = SubResource("AnimationNodeTransition_vfarp")
 nodes/Actions/position = Vector2(128, 1616)
 node_connections = [&"output", 0, &"controller", &"regular", 0, &"idle", &"regular", 1, &"walking", &"regular", 2, &"running", &"crouching", 0, &"crouching_idle", &"crouching", 1, &"crouching_walking", &"airborne ", 0, &"airborne_idle", &"airborne ", 1, &"airborne_walking", &"airborne ", 2, &"airborne_running", &"controller", 0, &"regular", &"controller", 1, &"crouching", &"controller", 2, &"airborne ", &"controller", 3, &"Actions", &"Actions", 0, &"dashing"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kgqsh"]
+streams_count = 4
+stream_0/stream = ExtResource("16_fs7ks")
+stream_1/stream = ExtResource("17_l6n3p")
+stream_2/stream = ExtResource("18_olqyp")
+stream_3/stream = ExtResource("19_wpjfl")
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ikl8t"]
 clip_count = 1
-clip_0/name = &"Footsteps"
-clip_0/stream = ExtResource("16_fd4e3")
+clip_0/name = &"footsteps_generic"
+clip_0/stream = SubResource("AudioStreamRandomizer_kgqsh")
+clip_0/auto_advance = 0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f7b5r"]
+clip_count = 1
+clip_0/name = &"landing"
+clip_0/stream = ExtResource("21_wpjfl")
 clip_0/auto_advance = 0
 
 [node name="Player" type="CharacterBody3D" unique_id=533158011]
@@ -657,9 +675,19 @@ parameters/Actions/transition_request = "dashing"
 parameters/Actions/current_index = -1
 script = ExtResource("12_7dp3o")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1580965953]
+[node name="AudioManager" type="Node3D" parent="." unique_id=1587255260]
+script = ExtResource("16_olqyp")
+
+[node name="Loops" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1580965953]
 stream = SubResource("AudioStreamInteractive_ikl8t")
-unit_size = 3.0
+volume_db = -20.0
+unit_size = 1.0
+max_db = -22.0
+bus = &"sfx"
+
+[node name="Sounds" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=2053510784]
+stream = SubResource("AudioStreamInteractive_f7b5r")
+volume_db = -15.0
 bus = &"sfx"
 
 [connection signal="camera_rotate" from="Camera" to="." method="_on_camera_rotate"]
