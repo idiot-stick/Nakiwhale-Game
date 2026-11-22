@@ -36,7 +36,8 @@ public partial class Running : Motion
         if (Input.IsActionJustPressed("jump"))
         {
             EmitSignal(SignalName.state_animation_change, "actions", "jumping");
-            jump(JUMP_POWER);
+            jump_multiplier = 1.00f;
+            jump(JUMP_POWER, JUMP_WEIGHT);
         }
         
         if (Input.IsActionJustReleased("sprint"))

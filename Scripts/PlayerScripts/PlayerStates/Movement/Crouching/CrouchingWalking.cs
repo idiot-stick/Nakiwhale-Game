@@ -30,7 +30,8 @@ public partial class CrouchingWalking : Motion
         if (Input.IsActionJustPressed("jump"))
         {
             EmitSignal(SignalName.state_animation_change, "actions", "jumping");
-            jump(JUMP_POWER);
+            jump_multiplier = 1.00f;
+            jump(JUMP_POWER, JUMP_WEIGHT);
         }
 
         if (Input.IsActionJustPressed("crouch") || Input.IsActionJustPressed("sprint"))

@@ -36,4 +36,9 @@ public partial class AirborneWalking : Motion
             detect_dash();
         }
     }
+
+    public override void physics_update(float delta)
+    {
+        jump(JUMP_POWER, JUMP_WEIGHT);
+    }
 }

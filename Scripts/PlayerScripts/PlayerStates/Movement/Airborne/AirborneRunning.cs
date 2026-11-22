@@ -30,4 +30,9 @@ public partial class AirborneRunning : Motion
             state_machine.change_state_movement("AirborneIdle");
         }
     }
+
+    public override void physics_update(float delta)
+    {
+        jump(JUMP_POWER, JUMP_WEIGHT);
+    }
 }

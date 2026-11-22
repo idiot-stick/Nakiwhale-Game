@@ -21,7 +21,8 @@ public partial class Motion : State
 
     public const float TURN_SPEED = 10;
     
-    public const float JUMP_POWER = 30;
+    public const float JUMP_POWER = 20;
+    public const float JUMP_WEIGHT = 0.6f;
 
     public const int DOUBLE_TAP_DELAY = 200;
  
@@ -35,6 +36,8 @@ public partial class Motion : State
     // Uhhhh
     public CharacterBody3D player = null;
     public Node3D visuals = null;
+
+    public static float jump_multiplier = 0f;
 
 
     // For dash detection
@@ -52,9 +55,14 @@ public partial class Motion : State
         direction = (player.Transform.Basis * new Vector3(input.X, 0, input.Y)).Normalized();
     }
     
-    public void jump(float jump_power) 
+    public void jump(float jump_power, float jump_weight) 
     {
-        velocity.Y += jump_power;
+        velocity.Y += jump_power * jump_multiplier;
+        jump_multiplier = Mathf.Lerp(jump_multiplier, 0.0f, jump_weight);
+        if (jump_multiplier < 0.01)
+        {
+            jump_multiplier = 0;
+        }
     }
 
     public void update_visuals(float turn_speed, float delta)

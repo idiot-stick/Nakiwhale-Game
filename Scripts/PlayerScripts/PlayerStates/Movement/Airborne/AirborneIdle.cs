@@ -27,6 +27,12 @@ public partial class AirborneIdle : Motion
         }
     }
 
+    public override void physics_update(float delta)
+    {
+        jump(JUMP_POWER, JUMP_WEIGHT);
+    }
+
+
     public override void handle_input(InputEvent @event)
     {
         if (direction != Vector3.Zero && Input.IsActionPressed("sprint"))
