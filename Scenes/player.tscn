@@ -324,6 +324,22 @@ tracks/0/keys = {
 "values": [Vector3(0.238, 0.238, 0.5), Vector3(0.233, 0.233, 0.5)]
 }
 
+[sub_resource type="Animation" id="Animation_0gysh"]
+resource_name = "jumping"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2, 0.33333334),
+"transitions": PackedFloat32Array(0.31864014, 0.39229214, 1.5691684, 1.3660405),
+"update": 0,
+"values": [Vector3(0.238, 0.238, 0.5), Vector3(0.238, 0.2, 0.5), Vector3(0.238, 0.27, 0.5), Vector3(0.238, 0.238, 0.5)]
+}
+
 [sub_resource type="Animation" id="Animation_l6n3p"]
 resource_name = "running"
 length = 0.25
@@ -399,9 +415,13 @@ _data = {
 &"dashing_left": SubResource("Animation_bi64h"),
 &"dashing_right": SubResource("Animation_qqcod"),
 &"idle": SubResource("Animation_fs7ks"),
+&"jumping": SubResource("Animation_0gysh"),
 &"running": SubResource("Animation_l6n3p"),
 &"walking": SubResource("Animation_olqyp")
 }
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vfarp"]
+fadein_time = 0.05
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_vfarp"]
 xfade_time = 0.2
@@ -409,6 +429,10 @@ input_0/name = "dashing"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
+input_1/name = "jumping"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_xuaoq"]
 sync = true
@@ -450,10 +474,6 @@ input_2/name = "airborne"
 input_2/auto_advance = false
 input_2/break_loop_at_end = false
 input_2/reset = true
-input_3/name = "actions"
-input_3/auto_advance = false
-input_3/break_loop_at_end = false
-input_3/reset = true
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_0gysh"]
 sync = true
@@ -503,6 +523,9 @@ blend_point_3/name = &"dashing_backward"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ypfnu"]
 animation = &"idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wohnl"]
+animation = &"jumping"
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_wohnl"]
 sync = true
 xfade_time = 0.2
@@ -526,8 +549,8 @@ animation = &"running"
 animation = &"walking"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ikl8t"]
-graph_offset = Vector2(-282.44562, 66.94197)
-nodes/output/position = Vector2(704, 592)
+graph_offset = Vector2(205.96875, 228.86002)
+nodes/output/position = Vector2(1392, 528)
 nodes/idle/node = SubResource("AnimationNodeAnimation_ypfnu")
 nodes/idle/position = Vector2(-96, -112)
 nodes/regular/node = SubResource("AnimationNodeTransition_wohnl")
@@ -549,14 +572,18 @@ nodes/controller/position = Vector2(448, 560)
 nodes/airborne_idle/node = SubResource("AnimationNodeAnimation_2ijsl")
 nodes/airborne_idle/position = Vector2(-96, 896)
 nodes/dashing/node = SubResource("AnimationNodeBlendSpace2D_wpjfl")
-nodes/dashing/position = Vector2(-112, 1504)
+nodes/dashing/position = Vector2(656, 688)
 nodes/airborne_walking/node = SubResource("AnimationNodeAnimation_xuaoq")
 nodes/airborne_walking/position = Vector2(-128, 1088)
 nodes/airborne_running/node = SubResource("AnimationNodeAnimation_83xs0")
 nodes/airborne_running/position = Vector2(-112, 1280)
-nodes/Actions/node = SubResource("AnimationNodeTransition_vfarp")
-nodes/Actions/position = Vector2(128, 1616)
-node_connections = [&"output", 0, &"controller", &"regular", 0, &"idle", &"regular", 1, &"walking", &"regular", 2, &"running", &"crouching", 0, &"crouching_idle", &"crouching", 1, &"crouching_walking", &"airborne ", 0, &"airborne_idle", &"airborne ", 1, &"airborne_walking", &"airborne ", 2, &"airborne_running", &"controller", 0, &"regular", &"controller", 1, &"crouching", &"controller", 2, &"airborne ", &"controller", 3, &"Actions", &"Actions", 0, &"dashing"]
+nodes/actions/node = SubResource("AnimationNodeTransition_vfarp")
+nodes/actions/position = Vector2(864, 816)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_vfarp")
+nodes/OneShot/position = Vector2(1120, 528)
+nodes/jumping/node = SubResource("AnimationNodeAnimation_wohnl")
+nodes/jumping/position = Vector2(672, 928)
+node_connections = [&"output", 0, &"OneShot", &"regular", 0, &"idle", &"regular", 1, &"walking", &"regular", 2, &"running", &"crouching", 0, &"crouching_idle", &"crouching", 1, &"crouching_walking", &"airborne ", 0, &"airborne_idle", &"airborne ", 1, &"airborne_walking", &"airborne ", 2, &"airborne_running", &"controller", 0, &"regular", &"controller", 1, &"crouching", &"controller", 2, &"airborne ", &"actions", 0, &"dashing", &"actions", 1, &"jumping", &"OneShot", 0, &"controller", &"OneShot", 1, &"actions"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kgqsh"]
 streams_count = 4
@@ -670,9 +697,12 @@ parameters/controller/current_state = "regular"
 parameters/controller/transition_request = ""
 parameters/controller/current_index = 0
 parameters/dashing/blend_position = Vector2(-0.009874344, 0.03058815)
-parameters/Actions/current_state = ""
-parameters/Actions/transition_request = "dashing"
-parameters/Actions/current_index = -1
+parameters/actions/current_state = "dashing"
+parameters/actions/transition_request = ""
+parameters/actions/current_index = 0
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
 script = ExtResource("12_7dp3o")
 
 [node name="AudioManager" type="Node3D" parent="." unique_id=1587255260]

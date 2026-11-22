@@ -31,6 +31,7 @@ public partial class Walking : Motion
     {
         if (Input.IsActionJustPressed("jump"))
         {
+            EmitSignal(SignalName.state_animation_change, "actions", "jumping");
             jump(JUMP_POWER);
         }
 

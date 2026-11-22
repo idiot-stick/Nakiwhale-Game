@@ -160,7 +160,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_kgqsh")
 theme_override_font_sizes/font_size = 24
-text = "Sound Effects Volume (Unimplemented)"
+text = "Sound Effects Volume"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background/MarginContainer/Settings/SfxVolume/MarginContainer" unique_id=882066212]
 layout_mode = 2

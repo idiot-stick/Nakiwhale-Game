@@ -30,16 +30,23 @@ public partial class Animation : AnimationTree
 
     void _on_state_animation_change(string category, string state)
     {
-        if (state == "dashing")
+        if (category == "actions")
         {
-            Vector3 player_velocity_3d = player.Velocity.Normalized() * player.Basis;
-            GD.Print(new Vector2(player_velocity_3d.X, player_velocity_3d.Z));
-            Set("parameters/dashing/blend_position", new Vector2(player_velocity_3d.X, player_velocity_3d.Y));
+            if (state == "dashing")
+            {
+                Vector3 player_velocity_3d = player.Velocity.Normalized() * player.Basis;
+                GD.Print(new Vector2(player_velocity_3d.X, player_velocity_3d.Z));
+                Set("parameters/dashing/blend_position", new Vector2(player_velocity_3d.X, player_velocity_3d.Y));
+            }
+
+            Set("parameters/actions/transition_request", state);
+            Set("parameters/OneShot/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+        } else
+        {
+            Set("parameters/controller/transition_request", category);
+
+            Set("parameters/"+category+"/transition_request", state);
         }
-
-        Set("parameters/controller/transition_request", category);
-
-        Set("parameters/"+category+"/transition_request", state);
     }
 
 }
